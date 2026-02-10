@@ -1,1 +1,2 @@
 # Lab1HTML
+Aclaración importante, decidí separar todo por carpetas debido a que, originalmente tenía pensado hacer una historia mucho más larga. No obstante, por temas de tiempo y creatividad, terminé por resumir mucho la historia final. Esto se ve reflejado en la estructura que esté utilizando. 
