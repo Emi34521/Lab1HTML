@@ -66,4 +66,4 @@ http://localhost/adventure/
 - Ensure your project files are in the correct directory: `/var/www/html/adventure/`
 - Check file permissions if you encounter access errors
 
-Link to de video: https://youtu.be/95S0JHIL30I 
+Link to de video: https://youtu.be/xx0BcNAK2FU
