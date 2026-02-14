@@ -1,4 +1,4 @@
-# Lab1HTML
+# Lab2HTML
 
 This project is a **choose-your-own-adventure interactive story** developed using **pure HTML only**, without CSS or JavaScript.  
 The story progresses through user decisions made exclusively via HTML links.
@@ -66,4 +66,12 @@ http://localhost/adventure/
 - Ensure your project files are in the correct directory: `/var/www/html/adventure/`
 - Check file permissions if you encounter access errors
 
-Link to de video: https://youtu.be/xx0BcNAK2FU
+## Part 1: Change the css to a website (racing)
+### Original 
+![Original Website](../Lab1HTML/Part1-racing/images/OriginalWebsite.png)
+### Changed version using stylus chrome extension
+![Changed Version](../Lab1HTML/Part1-racing/images/WebsiteChanged.png)
+The changed were made using the Wikipedia_stylus.css 
+
+
+
