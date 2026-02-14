@@ -68,10 +68,10 @@ http://localhost/adventure/
 
 ## Part 1: Change the css to a website (racing)
 ### Original 
-![Original Website](Lab1HTML/Part1-racing/images/OriginalWebsite.png)
+![Original Website](Part1-racing/images/OriginalWebsite.png)
 
 ### Changed version using stylus chrome extension
-![Changed Version](Lab1HTML/Part1-racing/images/WebsiteChanged.png)
+![Changed Version](Part1-racing/images/WebsiteChanged.png)
 The changed were made using the Wikipedia_stylus.css 
 
 
