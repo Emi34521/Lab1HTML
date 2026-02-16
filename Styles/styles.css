@@ -12,9 +12,58 @@ body {
     min-height: 100vh;
     /* Efecto de vignette (oscurecimiento en los bordes) para dar profundidad */
     box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.7);
+    /* Animación sutil de fade-in al cargar la página */
+    animation: fadeInPage 1.5s ease-in;
 }
 
-/* Estilos para el header */
+/* ========== ANIMACIONES ========== */
+
+/* Animación de fade-in para la página completa */
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animación de pulso para elementos importantes */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+/* Animación de brillo para texto importante */
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 10px #ffdd00, 0 0 20px #ffdd00;
+    }
+    50% {
+        text-shadow: 0 0 20px #ffdd00, 0 0 30px #ffdd00, 0 0 40px #ffdd00;
+    }
+}
+
+/* Animación de deslizamiento desde abajo */
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ========== ESTILOS PARA EL HEADER ========== */
+
 header {
     text-align: center;
     margin-bottom: 40px;
@@ -22,6 +71,8 @@ header {
     border-bottom: 3px solid rgba(255, 255, 255, 0.3);
     background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(5px);
+    /* Animación de entrada */
+    animation: slideUp 1s ease-out;
 }
 
 header h1 {
@@ -29,6 +80,12 @@ header h1 {
     margin-bottom: 15px;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     letter-spacing: 2px;
+    /* Animación de pulso en hover */
+    transition: all 0.3s ease;
+}
+
+header h1:hover {
+    animation: pulse 2s infinite;
 }
 
 header small {
@@ -39,36 +96,71 @@ header small {
     margin-top: 10px;
 }
 
-/* Estilos para el contenido principal */
+/* ========== ESTILOS PARA EL CONTENIDO PRINCIPAL ========== */
+
 main {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
+    animation: fadeInPage 2s ease-in;
 }
 
 main p {
     margin-bottom: 25px;
     font-size: 1.1em;
     text-align: justify;
+    /* Animación sutil al aparecer */
+    animation: slideUp 1.5s ease-out;
 }
 
 main h2 {
     margin: 30px 0 20px 0;
     font-size: 1.8em;
     text-align: center;
+    animation: slideUp 1.8s ease-out;
 }
 
-/* Estilos para imágenes */
+/* ========== MARCOS PARA IMÁGENES (Punto 5) ========== */
+
+/* Marco estilo Metro 2033 con efecto de profundidad */
 img {
     display: block;
     margin: 30px auto;
-    border: 3px solid #ffffff;
-    border-radius: 8px;
     max-width: 100%;
     height: auto;
+    
+    /* Marco principal */
+    border: 5px solid #2c3e50;
+    border-radius: 4px;
+    
+    /* Marco interno dorado */
+    box-shadow: 
+        inset 0 0 0 2px #ffdd00,
+        0 8px 16px rgba(0, 0, 0, 0.8),
+        0 0 30px rgba(255, 221, 0, 0.3);
+    
+    /* Efecto de desgaste */
+    filter: contrast(1.1) brightness(0.95);
+    
+    /* Transición suave */
+    transition: all 0.4s ease;
+    
+    /* Animación de entrada */
+    animation: slideUp 2s ease-out;
 }
 
-/* Estilos para tablas */
+/* Efecto hover para imágenes */
+img:hover {
+    transform: scale(1.02);
+    box-shadow: 
+        inset 0 0 0 2px #ffdd00,
+        0 12px 24px rgba(0, 0, 0, 0.9),
+        0 0 50px rgba(255, 221, 0, 0.5);
+    filter: contrast(1.15) brightness(1.05);
+}
+
+/* ========== ESTILOS PARA TABLAS CON IMÁGENES ========== */
+
 table {
     margin: 30px auto;
     border-collapse: collapse;
@@ -78,35 +170,251 @@ table td {
     padding: 10px;
 }
 
-/* Estilos para botones (antiguos enlaces) */
+table img {
+    margin: 0;
+}
+
+/* ========== BOTONES ESTILO METRO 2033 (Punto 6) ========== */
+
 .button-container {
     text-align: center;
-    margin: 20px 0;
+    margin: 40px 0;
+    padding: 20px;
+    animation: slideUp 2.5s ease-out;
 }
 
+/* Estilo base de botones inspirado en Metro 2033 - Rústico, metálico e improvisado */
 .story-button {
     display: inline-block;
-    padding: 15px 40px;
-    margin: 10px;
-    background-color: #ffffff;
-    color: #000000;
-    text-decoration: none;
+    position: relative;
+    padding: 16px 45px;
+    margin: 15px;
+    
+    /* Fondo metálico oxidado */
+    background: 
+        linear-gradient(135deg, 
+            #3d3d3d 0%, 
+            #2a2a2a 25%, 
+            #1f1f1f 50%, 
+            #2a2a2a 75%, 
+            #3d3d3d 100%);
+    color: #c4c4c4;
+    
+    /* Borde improvisado con óxido */
+    border: 4px solid;
+    border-color: #4a4a4a #2a2a2a #1a1a1a #3a3a3a;
+    border-radius: 0;
+    
+    /* Sombras para efecto metálico hundido */
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.8),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.05),
+        0 6px 12px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(100, 80, 60, 0.4);
+    
+    /* Tipografía estilo máquina de escribir/stencil */
     font-size: 1.2em;
-    font-weight: bold;
-    border: 3px solid #ffffff;
-    border-radius: 5px;
+    font-weight: 900;
+    font-family: 'Courier New', 'Consolas', monospace;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.9),
+        0 0 8px rgba(0, 0, 0, 0.5);
+    
+    /* Cursor y transición */
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+    
+    /* Textura de metal rayado */
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.1) 2px,
+            rgba(0, 0, 0, 0.1) 4px
+        );
 }
 
+/* Efecto de óxido y suciedad en los bordes */
+.story-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(101, 67, 33, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.3) 0%, transparent 70%);
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Marcas de desgaste y tornillos */
+.story-button::after {
+    content: '⚫';
+    position: absolute;
+    top: 4px;
+    left: 8px;
+    font-size: 6px;
+    color: #1a1a1a;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+}
+
+/* Estado hover del botón - efecto de luz de linterna */
 .story-button:hover {
-    background-color: #000000;
-    color: #ffffff;
-    box-shadow: 0 0 20px #ffffff;
-    transform: scale(1.05);
+    background: 
+        linear-gradient(135deg, 
+            #4d4d4d 0%, 
+            #3a3a3a 25%, 
+            #2f2f2f 50%, 
+            #3a3a3a 75%, 
+            #4d4d4d 100%);
+    color: #ffdd00;
+    border-color: #5a5a5a #3a3a3a #2a2a2a #4a4a4a;
+    
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.7),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.95),
+        0 0 20px rgba(255, 221, 0, 0.3),
+        0 0 0 2px rgba(255, 221, 0, 0.2);
+    
+    transform: translateY(-1px);
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.9),
+        0 0 10px rgba(255, 221, 0, 0.6);
 }
 
-/* Estilos para el footer */
+/* Estado active (cuando se hace clic) - botón presionado */
+.story-button:active {
+    transform: translateY(2px);
+    box-shadow: 
+        inset 3px 3px 6px rgba(0, 0, 0, 0.9),
+        inset -1px -1px 2px rgba(255, 255, 255, 0.03),
+        0 2px 4px rgba(0, 0, 0, 0.8);
+    background: 
+        linear-gradient(135deg, 
+            #2a2a2a 0%, 
+            #1f1f1f 50%, 
+            #2a2a2a 100%);
+}
+
+/* Efecto de focus para accesibilidad */
+.story-button:focus {
+    outline: 3px solid rgba(255, 221, 0, 0.5);
+    outline-offset: 3px;
+}
+
+/* ========== ANIMACIÓN PARA LINKS ANTIGUOS (convertir en botones estilo Metro) ========== */
+
+/* Estilo para enlaces dentro de párrafos que funcionan como opciones */
+main p a {
+    display: inline-block;
+    position: relative;
+    padding: 14px 40px;
+    margin: 10px 5px;
+    
+    /* Fondo metálico oxidado */
+    background: 
+        linear-gradient(135deg, 
+            #3d3d3d 0%, 
+            #2a2a2a 25%, 
+            #1f1f1f 50%, 
+            #2a2a2a 75%, 
+            #3d3d3d 100%);
+    color: #c4c4c4;
+    
+    /* Borde improvisado con óxido */
+    border: 4px solid;
+    border-color: #4a4a4a #2a2a2a #1a1a1a #3a3a3a;
+    border-radius: 0;
+    
+    /* Sombras para efecto metálico hundido */
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.8),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.05),
+        0 6px 12px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(100, 80, 60, 0.4);
+    
+    /* Tipografía estilo máquina de escribir/stencil */
+    font-size: 1.1em;
+    font-weight: 900;
+    font-family: 'Courier New', 'Consolas', monospace;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.9),
+        0 0 8px rgba(0, 0, 0, 0.5);
+    
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    /* Textura de metal rayado */
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.1) 2px,
+            rgba(0, 0, 0, 0.1) 4px
+        );
+}
+
+/* Efecto de óxido y suciedad */
+main p a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(101, 67, 33, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+main p a:hover {
+    background: 
+        linear-gradient(135deg, 
+            #4d4d4d 0%, 
+            #3a3a3a 25%, 
+            #2f2f2f 50%, 
+            #3a3a3a 75%, 
+            #4d4d4d 100%);
+    color: #ffdd00;
+    border-color: #5a5a5a #3a3a3a #2a2a2a #4a4a4a;
+    transform: translateY(-1px);
+    
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.7),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.95),
+        0 0 20px rgba(255, 221, 0, 0.3);
+    
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.9),
+        0 0 10px rgba(255, 221, 0, 0.6);
+}
+
+main p a:active {
+    transform: translateY(2px);
+    box-shadow: 
+        inset 3px 3px 6px rgba(0, 0, 0, 0.9),
+        inset -1px -1px 2px rgba(255, 255, 255, 0.03),
+        0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* ========== ESTILOS PARA EL FOOTER ========== */
+
 footer {
     text-align: center;
     margin-top: 60px;
@@ -115,76 +423,101 @@ footer {
     background-color: rgba(0, 0, 0, 0.3);
     opacity: 0.7;
     font-size: 0.9em;
+    animation: fadeInPage 3s ease-in;
 }
+
+/* ========== TIPOGRAFÍAS POR PÁGINA ========== */
 
 /* Tipografía para página de inicio */
 .inicio-page body {
     font-family: 'Georgia', serif;
-    background-color: #1a1a1a; /* Gris oscuro metálico */
-    /* Gradiente sutil para dar profundidad al inicio */
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
 }
 
 /* Tipografía para páginas de desarrollo/continuación */
 .desarrollo-page body {
     font-family: 'Courier New', monospace;
-    background-color: #1c2833; /* Gris azulado */
-    /* Gradiente que simula profundidad de túnel */
     background: linear-gradient(to bottom, #1c2833 0%, #0f1419 100%);
 }
 
 /* Tipografía para Polis */
 .polis-page body {
     font-family: 'Times New Roman', serif;
-    background-color: #154360; /* Azul acero oscuro */
+    background-color: #154360;
 }
 
 /* Tipografía para Superficie GENERAL */
 .superficie-page body {
     font-family: 'Arial', sans-serif;
-    background-color: #1a2f1a; /* Verde radiactivo más claro para mejor legibilidad */
+    background-color: #1a2f1a;
 }
 
 /* Estilo específico para BIBLIOTECA */
 .biblioteca-page body {
     font-family: 'Arial', sans-serif;
-    /* Fondo más claro con tinte verdoso para mejor legibilidad */
     background: linear-gradient(135deg, #1f3d1f 0%, #2a4a2a 100%);
 }
 
 /* Estilo específico para EDIFICIO */
 .edificio-page body {
     font-family: 'Arial', sans-serif;
-    /* Fondo gris verdoso más claro para mejor contraste */
     background: linear-gradient(135deg, #2c3e2c 0%, #3a4f3a 100%);
 }
 
 /* Tipografía para Venecia */
 .venecia-page body {
     font-family: 'Verdana', sans-serif;
-    background-color: #1c3334; /* Gris verdoso (agua contaminada) */
+    background-color: #1c3334;
 }
 
 /* Tipografía para finales buenos */
 .final-bueno-page body {
     font-family: 'Palatino', serif;
-    background-color: #1b4f72; /* Azul esperanzador */
+    background-color: #1b4f72;
 }
 
 /* Tipografía para finales malos */
 .final-malo-page body {
     font-family: 'Impact', sans-serif;
-    background-color: #0d0d0d; /* Gris casi negro */
+    background-color: #0d0d0d;
 }
 
 /* Tipografía para finales neutros */
 .final-neutro-page body {
     font-family: 'Trebuchet MS', sans-serif;
-    background-color: #2c3e50; /* Gris industrial */
+    background-color: #2c3e50;
 }
 
-/* Efectos especiales para texto importante */
+/* ========== EFECTOS PARA TEXTO IMPORTANTE ========== */
+
 strong, b {
     color: #ffdd00;
     text-shadow: 0 0 10px #ffdd00;
+    /* Animación de brillo */
+    animation: glow 3s ease-in-out infinite;
+}
+
+/* ========== ANIMACIONES ADICIONALES CON PSEUDOCLASES ========== */
+
+/* Animación para el primer párrafo */
+main p:first-of-type {
+    font-size: 1.15em;
+    animation: slideUp 1s ease-out;
+    border-left: 4px solid #ffdd00;
+    padding-left: 15px;
+}
+
+/* Animación para el último botón */
+.story-button:last-child {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Efecto especial para imágenes pares */
+img:nth-of-type(even) {
+    border-color: #3a4a3a;
+}
+
+/* Efecto especial para imágenes impares */
+img:nth-of-type(odd) {
+    border-color: #4a3a2a;
 }

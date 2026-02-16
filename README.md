@@ -74,5 +74,6 @@ http://localhost/adventure/
 ![Changed Version](Part1-racing/images/WebsiteChanged.png)
 The changed were made using the Wikipedia_stylus.css 
 
-
+## Part 2: Adding css to the html adventure
+Video of the part 2: https://youtu.be/OvqYQlA9WwY 
 
